@@ -1,0 +1,13 @@
+ChangeWord.mainfunction("ytha")
+word = "cthasdf"
+helpword = word
+word = cond do
+  Enum.member?(["a","e","i","o","u"], String.slice(word,0..0)) -> word = String.slice(word,1..String.length(word)) <>    "ay" # vowel
+  Enum.member?(["yt","xr"], String.slice(word,0..1)) -> word = String.slice(word,2..String.length(word)) <>  "ay" #vowel
+  Enum.member?(["thr","sch"], String.slice(word,0..2)) -> word = String.slice(word,3..String.length(word)) <>  String.slice(word,0..2) <>   "ay" #consonant
+  Enum.member?(["ch","qu","squ","th"], String.slice(word,0..1)) -> word = String.slice(word,2..String.length(word)) <>  String.slice(word,0..1) <>   "ay" #consonant
+
+  1 + 1 == 2 -> word = String.slice(word,1..String.length(word)) <>  String.slice(word,0..0) <>   "ay" #if conndiction above are false that means it is consonant
+end
+
+IO.puts word
